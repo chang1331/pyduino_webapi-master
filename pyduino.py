@@ -46,13 +46,12 @@ class Arduino():
         Performs a digital read on pin_number and returns the value (1 or 0)
         Internally sends b'RD{pin_number}' over the serial connection
         """
-        command = (''.join('RB')).encode()
+        command =(''.join(('RB', ':' ))).encode()
         self.conn.write(command)
         line_received = self.conn.readline().decode().strip()
-        header, value = line_received.split(':')  # e.g. A4:1
-        if header == ('B'):
-            # If header matches
-            return int(value)
+        value = line_received  # e.g. A4:1
+
+        return value
 
     def digital_write(self, pin_number, digital_value):
         """
