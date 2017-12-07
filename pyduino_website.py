@@ -26,7 +26,7 @@ print 'Arduino initialized'
 def hello_world():
 
     # variables for template page (templates/index.html)
-    author = "Kyle"
+    author = "CHANGBRENDATAVO"
 
     # if we make a post request on the webpage aka press button then do stuff
     if request.method == 'POST':
@@ -52,7 +52,7 @@ def hello_world():
     cuentaboton= a.digital_boton()
 
     # the default page to display will be our template with our template variables
-    return render_template('index.html', author=author, value=cuentaboton )
+    return render_template('index.html', author=author, value=cuentaboton)
 
 
 # unsecure API urls
